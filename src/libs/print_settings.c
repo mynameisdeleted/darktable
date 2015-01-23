@@ -225,20 +225,6 @@ _print_button_clicked (GtkWidget *widget, gpointer user_data)
   const int margin_right  = pwidth - iwidth - ix;
   const int margin_bottom = pheight - iheight - iy;
 
-  dt_conf_set_int("plugins/imageio/format/print/margin-top", margin_top);
-  if (ps->prt.page.landscape)
-  {
-    dt_conf_set_int("plugins/imageio/format/print/margin-right", margin_right);
-    dt_conf_set_int("plugins/imageio/format/print/margin-left", 0);
-  }
-  else
-  {
-    dt_conf_set_int("plugins/imageio/format/print/margin-left", margin_left);
-    dt_conf_set_int("plugins/imageio/format/print/margin-right", 0);
-  }
-  dt_conf_set_int("plugins/imageio/format/print/margin-bottom", 0);
-
-  if (darktable.unmuted & DT_DEBUG_PRINT)
     printf("[print] margins top %d ; bottom %d ; left %d ; right %d\n",
             margin_top, margin_bottom, margin_left, margin_right);
 
